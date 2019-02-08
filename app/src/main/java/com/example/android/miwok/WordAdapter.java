@@ -16,13 +16,9 @@ import java.util.ArrayList;
 public class WordAdapter extends ArrayAdapter<Word> {
 
     public WordAdapter(Context context, ArrayList<Word> pWords) {
+
         super(context,0, pWords);
     }
-
-
-
-
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
