@@ -5,6 +5,7 @@ import android.content.Context;
 import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +16,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
+    private int mColorResourceId;
 
-    public WordAdapter(Context context, ArrayList<Word> pWords) {
+    public WordAdapter(Context context, ArrayList<Word> pWords,int mResourceId) {
 
         super(context,0, pWords);
+        mColorResourceId=mResourceId;
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -46,6 +49,11 @@ public class WordAdapter extends ArrayAdapter<Word> {
             image.setVisibility(View.GONE);
             //gone completely disables images unlike invisible which leaves blank space in place of image
         }
+        View textContainer = listItemView.findViewById(R.id.linear2);
+        // Find the color that the resource ID maps to
+        int color = ContextCompat.getColor(getContext(), mColorResourceId);
+        // Set the background color of the text container View
+        textContainer.setBackgroundColor(color);
 
         return listItemView;
 }
