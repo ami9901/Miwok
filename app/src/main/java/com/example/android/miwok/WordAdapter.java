@@ -35,8 +35,17 @@ public class WordAdapter extends ArrayAdapter<Word> {
         miwokTextView.setText(local_word.getMiwokTranslation());
         TextView defaultTextView = (TextView) listItemView.findViewById(R.id.default_textView);
         defaultTextView.setText(local_word.getDefaultTranslation());
+
         ImageView image =(ImageView)listItemView.findViewById(R.id.image);
+
+        if(local_word.hasImage()){
+
         image.setImageResource(local_word.getImageResourceId());
+        }
+        else{
+            image.setVisibility(View.GONE);
+            //gone completely disables images unlike invisible which leaves blank space in place of image
+        }
 
         return listItemView;
 }
