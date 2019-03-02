@@ -1,4 +1,4 @@
-package com.example.android.miwok;
+package com.example.android.miwok.Extras;
 
 public class Word {
     private String mDefaultTranslation;

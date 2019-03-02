@@ -13,15 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.android.miwok;
+package com.example.android.miwok.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 
+import com.example.android.miwok.R;
+import com.example.android.miwok.Extras.Word;
+import com.example.android.miwok.Adapters.WordAdapter;
+
 import java.util.ArrayList;
 
-public class ColorsActivity extends AppCompatActivity {
+public class PhrasesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,16 +33,18 @@ public class ColorsActivity extends AppCompatActivity {
         setContentView(R.layout.words_list);
 
         ArrayList<Word> words= new ArrayList<>();
-        words.add(new Word("red","weṭeṭṭi",R.drawable.color_red));
-        words.add(new Word("green","chokokki",R.drawable.color_green));
-        words.add(new Word("brown","ṭakaakki",R.drawable.color_brown));
-        words.add(new Word("gray","oyyisaṭopoppi",R.drawable.color_gray));
-        words.add(new Word("black","kululli",R.drawable.color_black));
-        words.add(new Word("white","kelelli",R.drawable.color_white));
-        words.add(new Word("dusty yellow","ṭopiisә",R.drawable.color_dusty_yellow));
-        words.add(new Word("mustard yellow","chiwiiṭә",R.drawable.color_mustard_yellow));
+        words.add(new Word("Where are you going?","minto wuksus"));
+        words.add(new Word("What is your name?","tinnә oyaase'nә"));
+        words.add(new Word("My name is...","oyaaset..."));
+        words.add(new Word("How are you feeling?","michәksәs?"));
+        words.add(new Word("I’m feeling good.","kuchi achit"));
+        words.add(new Word("Are you coming?","әәnәs'aa?"));
+        words.add(new Word("Yes, I’m coming.","hәә’ әәnәm"));
+        words.add(new Word("I’m coming.","әәnәm"));
+        words.add(new Word("Let’s go.","yoowutis"));
+        words.add(new Word("Come here.","әnni'nem"));
 
-        WordAdapter itemsAdapter = new WordAdapter(this,words,R.color.category_colors);
+        WordAdapter itemsAdapter = new WordAdapter(this,words,R.color.category_phrases);
 
         ListView listView = (ListView) findViewById(R.id.list);
 

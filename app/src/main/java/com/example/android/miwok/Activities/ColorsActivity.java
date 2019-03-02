@@ -13,15 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.android.miwok;
+package com.example.android.miwok.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 
+import com.example.android.miwok.R;
+import com.example.android.miwok.Extras.Word;
+import com.example.android.miwok.Adapters.WordAdapter;
+
 import java.util.ArrayList;
 
-public class NumbersActivity extends AppCompatActivity {
+public class ColorsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,22 +33,19 @@ public class NumbersActivity extends AppCompatActivity {
         setContentView(R.layout.words_list);
 
         ArrayList<Word> words= new ArrayList<>();
-        words.add(new Word("one","lutti",R.drawable.number_one));
-        words.add(new Word("two","otiiko",R.drawable.number_two));
-        words.add(new Word("three","tolookosu",R.drawable.number_three));
-        words.add(new Word("four","oyyisa",R.drawable.number_four));
-        words.add(new Word("five","massokka",R.drawable.number_five));
-        words.add(new Word("six","temmokka",R.drawable.number_six));
-        words.add(new Word("seven","kenekaku",R.drawable.number_seven));
-        words.add(new Word("eight","kawinta",R.drawable.number_eight));
-        words.add(new Word("nine","wo'e",R.drawable.number_nine));
-        words.add(new Word("ten","na'accha",R.drawable.number_ten));
+        words.add(new Word("red","weṭeṭṭi",R.drawable.color_red));
+        words.add(new Word("green","chokokki",R.drawable.color_green));
+        words.add(new Word("brown","ṭakaakki",R.drawable.color_brown));
+        words.add(new Word("gray","oyyisaṭopoppi",R.drawable.color_gray));
+        words.add(new Word("black","kululli",R.drawable.color_black));
+        words.add(new Word("white","kelelli",R.drawable.color_white));
+        words.add(new Word("dusty yellow","ṭopiisә",R.drawable.color_dusty_yellow));
+        words.add(new Word("mustard yellow","chiwiiṭә",R.drawable.color_mustard_yellow));
 
-        WordAdapter itemsAdapter = new WordAdapter(this,words,R.color.category_numbers);
+        WordAdapter itemsAdapter = new WordAdapter(this,words,R.color.category_colors);
 
         ListView listView = (ListView) findViewById(R.id.list);
 
         listView.setAdapter(itemsAdapter);
-
     }
 }

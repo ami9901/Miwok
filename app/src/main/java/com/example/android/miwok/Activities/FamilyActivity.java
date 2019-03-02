@@ -13,11 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.android.miwok;
+package com.example.android.miwok.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
+
+import com.example.android.miwok.R;
+import com.example.android.miwok.Extras.Word;
+import com.example.android.miwok.Adapters.WordAdapter;
 
 import java.util.ArrayList;
 
