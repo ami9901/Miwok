@@ -30,6 +30,7 @@ public class Word {
     public int getImageResourceId(){ return mImageResourceId;}
     public int getMediaPlayerId(){ return mediaPlayerId;}
     public boolean hasImage(){
-        return mImageResourceId!=NO_IMAGE_PROVIDED;//checks if image is provided or not if != return true i.e image is provided
+        return mImageResourceId!=NO_IMAGE_PROVIDED;
+        //checks if image is provided or not; if != return true i.e image is provided
     }
 }

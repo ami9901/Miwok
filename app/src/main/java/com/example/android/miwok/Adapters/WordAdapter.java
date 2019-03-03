@@ -32,6 +32,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.list_item, parent, false);
         }
+        //Get the data item associated with the specified position in the data set.
         Word local_word = getItem(position);
         TextView miwokTextView = (TextView) listItemView.findViewById(R.id.miwok_textView);
         miwokTextView.setText(local_word.getMiwokTranslation());

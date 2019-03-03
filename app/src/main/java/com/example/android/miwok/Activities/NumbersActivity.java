@@ -37,7 +37,9 @@ public class NumbersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.words_list);
 
-        ArrayList<Word> words= new ArrayList<>();
+       final ArrayList<Word> words= new ArrayList<>();
+        // we declare it as final because an inline OnItemClickListener is implemented
+        // which will either take final variables or global variables to the activity
         words.add(new Word("one","lutti",R.drawable.number_one,R.raw.number_one));
         words.add(new Word("two","otiiko",R.drawable.number_two,R.raw.number_two));
         words.add(new Word("three","tolookosu",R.drawable.number_three,R.raw.number_three));
@@ -58,7 +60,10 @@ public class NumbersActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                mediaPlayer= (MediaPlayer) MediaPlayer.create(NumbersActivity.this,R.raw.number_one);
+                Word word=words.get(position);
+                //get method returns element at the position,
+                // here:ArrayList is made of Word class;returns Word object
+                mediaPlayer=MediaPlayer.create(NumbersActivity.this,word.getMediaPlayerId());
                 mediaPlayer.start();
             }
         });
