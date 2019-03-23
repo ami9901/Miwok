@@ -66,6 +66,9 @@ public class FamilyActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Word word=words.get(position);
+
+                //release resources before another song is played
+                releaseMediaPlayer();
                 //get method returns element at the position,
                 // here:ArrayList is made of Word class;returns Word object
                 mediaPlayer= MediaPlayer.create(FamilyActivity.this,word.getMediaPlayerId());
@@ -87,6 +90,12 @@ public class FamilyActivity extends AppCompatActivity {
             // is not configured to play an audio file at the moment.
             mediaPlayer = null;
         }
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        releaseMediaPlayer();
     }
 }
 
