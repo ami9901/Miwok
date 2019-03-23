@@ -32,6 +32,13 @@ import java.util.ArrayList;
 public class ColorsActivity extends AppCompatActivity {
 
     private MediaPlayer mediaPlayer;
+    private MediaPlayer.OnCompletionListener onCompletionListener=new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mp) {
+            Toast.makeText(ColorsActivity.this,"I'm done",Toast.LENGTH_SHORT).show();
+            releaseMediaPlayer();
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,13 +68,7 @@ public class ColorsActivity extends AppCompatActivity {
                 // here:ArrayList is made of Word class;returns Word object
                 mediaPlayer= MediaPlayer.create(ColorsActivity.this,word.getMediaPlayerId());
                 mediaPlayer.start();
-                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                    @Override
-                    public void onCompletion(MediaPlayer mp) {
-                        Toast.makeText(ColorsActivity.this,"I'm done",Toast.LENGTH_SHORT).show();
-                        releaseMediaPlayer();
-                    }
-                });
+                mediaPlayer.setOnCompletionListener(onCompletionListener);
             }
         });
 
