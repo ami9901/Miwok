@@ -15,6 +15,7 @@
  */
 package com.example.android.miwok.Activities;
 
+import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
@@ -71,6 +72,7 @@ public class PhrasesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.words_list);
 
+        myAudioManager=(AudioManager)getSystemService(Context.AUDIO_SERVICE);
         final ArrayList<Word> words= new ArrayList<>();
         words.add(new Word("Where are you going?","minto wuksus",R.raw.phrase_where_are_you_going));
         words.add(new Word("What is your name?","tinnә oyaase'nә",R.raw.phrase_what_is_your_name));
@@ -123,6 +125,7 @@ public class PhrasesActivity extends AppCompatActivity {
             // setting the media player to null is an easy way to tell that the media player
             // is not configured to play an audio file at the moment.
             mediaPlayer = null;
+            myAudioManager.abandonAudioFocus(afChangeListener);
         }
     }
     @Override

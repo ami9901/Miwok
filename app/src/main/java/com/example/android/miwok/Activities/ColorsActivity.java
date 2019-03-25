@@ -15,6 +15,7 @@
  */
 package com.example.android.miwok.Activities;
 
+import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
@@ -71,6 +72,7 @@ public class ColorsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.words_list);
 
+        myAudioManager=(AudioManager)getSystemService(Context.AUDIO_SERVICE);
         final ArrayList<Word> words= new ArrayList<>();
         words.add(new Word("red","weṭeṭṭi",R.drawable.color_red,R.raw.color_red));
         words.add(new Word("green","chokokki",R.drawable.color_green,R.raw.color_green));

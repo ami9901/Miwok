@@ -15,6 +15,7 @@
  */
 package com.example.android.miwok.Activities;
 
+import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
@@ -71,6 +72,7 @@ public class FamilyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.words_list);
 
+        myAudioManager=(AudioManager)getSystemService(Context.AUDIO_SERVICE);
         final ArrayList<Word> words= new ArrayList<>();
         words.add(new Word("father","әpә",R.drawable.family_father,R.raw.family_father));
         words.add(new Word("mother","әṭa",R.drawable.family_mother,R.raw.family_mother));
